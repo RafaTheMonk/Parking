@@ -23,6 +23,31 @@ int check_memory(int m, int d){
 	}
 }
 
+void List_all_reservations(){
+	int da, mo, month, day;
+	system("cls");
+	printf("List of all reservations\n\n");
+	for (mo=1;mo<13;mo++){
+		for(da=1;da<32;da++){
+			if(personal_register[mo][da].register_number==0){
+				continue;
+			}else{
+			printf("\nData this day %d/%d\n",mo,da);
+			
+			printf("\nRegister number:\n%d\n", personal_register[mo][da].register_number);
+						
+			printf("\nName\n%s\n", personal_register[mo][da].name);
+			
+			printf("\nGenre:\n%s\n", personal_register[mo][da].genre);
+			
+			printf("\nPhone number:\n%d\n", personal_register[mo][da].phone_number);
+			
+			printf("\nAge:\n%d\n", personal_register[mo][da].age);
+			}
+		}
+	}
+}
+
 void consult_reservation(){
 int mo, da, c;
 	do{
@@ -151,7 +176,7 @@ do{
         consult_reservation();
         break;
         case 3:
-        printf("Consult reservations in this month\n");
+        List_all_reservations();
         break;
         case 4:
         printf("Thanks for your access\n");
